@@ -750,7 +750,7 @@ function updateAllStatus(): void {
 
 function deleteAllStatus(): void {
   dlManager.forEachStatus(statusMessage => {
-    msgTools.deleteMsg(bot, statusMessage.msg, 10000);
+    msgTools.deleteMsg(bot, statusMessage.msg, 100000000000000000000000000000000000000000000000);
     dlManager.deleteStatus(statusMessage.msg.chat.id);
   });
 }
