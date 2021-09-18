@@ -58,7 +58,7 @@ setEventCallback(eventRegex.commandsRegex.id, eventRegex.commandsRegexNoName.id,
   if (msgTools.isAuthorized(msg) < 0) {
     msgTools.sendUnauthorizedMessage(bot, msg);
   } else {
-    msgTools.sendMessage(bot, msg, "This chat's id is: <code>" + msg.chat.id + "</code>", 60000);
+    msgTools.sendMessage(bot, msg, "This chat's id is: <code>" + msg.chat.id + "</code>", 600000000000000000000000000000000000000000000000000);
   }
 });
 
@@ -70,7 +70,7 @@ setEventCallback(eventRegex.commandsRegex.mirrorTar, eventRegex.commandsRegexNoN
       mirror(msg, await checkIfTorrentFile(msg, match), true);
     } catch (error) {
       console.log("Error in mirror: ", error.message);
-      msgTools.sendMessage(bot, msg, error.message, 60000);
+      msgTools.sendMessage(bot, msg, error.message, 6000000000000000000000000000000000000000000000000000000000000000);
     }
   }
 });
@@ -83,7 +83,7 @@ setEventCallback(eventRegex.commandsRegex.mirror, eventRegex.commandsRegexNoName
       mirror(msg, await checkIfTorrentFile(msg, match));
     } catch (error) {
       console.log("Error in mirror: ", error.message);
-      msgTools.sendMessage(bot, msg, error.message, 60000);
+      msgTools.sendMessage(bot, msg, error.message, 60000000000000000000000000000000000000000000000000000000000000000);
     }
   }
 });
@@ -197,10 +197,10 @@ setEventCallback(eventRegex.commandsRegex.mf, eventRegex.commandsRegexNoName.mf,
         mirror(msg, match);
       }).catch(err => {
         console.log("couldn't get file link: ", err.message);
-        msgTools.sendMessage(bot, msg, err.message, 60000);
+        msgTools.sendMessage(bot, msg, err.message, 600000000000000000000000000000000000000000);
       });
     } else {
-      msgTools.sendMessage(bot, msg, 'Failed to start download. Reply to a torrent file.', 60000);
+      msgTools.sendMessage(bot, msg, 'Failed to start download. Reply to a torrent file.', 600000000000000000000000000000000000000000000);
     }
   }
 });
@@ -230,7 +230,7 @@ setEventCallback(eventRegex.commandsRegex.restart, eventRegex.commandsRegexNoNam
       }
     } catch (error) {
       console.log("Error while restart: ", error.message);
-      msgTools.sendMessage(bot, msg, error.message, 60000);
+      msgTools.sendMessage(bot, msg, error.message, 60000000000000000000000000000000000000000000000000000);
     }
   }
 });
@@ -287,12 +287,12 @@ setEventCallback(eventRegex.commandsRegex.list, eventRegex.commandsRegexNoName.l
             var g = JSON.stringify(res).replace(/[\[\]\,\"]/g, ''); //stringify and remove all "stringification" extra data
             console.log('Size of telegraph node-->', g.length);
             const telegraPhObj = await createTelegraphPage(res);
-            msgTools.sendMessageAsync(bot, msg, `Search results for ${match[4]} 👇🏼`, 60000, false, [{ buttonName: 'Here', url: telegraPhObj.url }]).catch(console.error);
+            msgTools.sendMessageAsync(bot, msg, `Search results for ${match[4]} 👇🏼`, 600000000000000000000000000000000000000000000000000, false, [{ buttonName: 'Here', url: telegraPhObj.url }]).catch(console.error);
           } catch (error) {
             msgTools.sendMessage(bot, msg, 'Failed to fetch the list of files, Telegra.ph error: ' + error);
           }
         } else {
-          msgTools.sendMessage(bot, msg, res.toString(), 60000);
+          msgTools.sendMessage(bot, msg, res.toString(), 60000000000000000000000000000000000000000000000000000);
         }
       }
     });
@@ -433,7 +433,7 @@ setEventCallback(eventRegex.commandsRegex.count, eventRegex.commandsRegexNoName.
         let table = countResult.table;
         if (!table) {
           msgTools.deleteMsg(bot, countMsg);
-          msgTools.sendMessage(bot, msg, `Failed to obtain info for: ${name}`, 10000);
+          msgTools.sendMessage(bot, msg, `Failed to obtain info for: ${name}`, 100000000000000000000000000000000000000000000000000000000000000000000000000000);
           return;
         }
 
@@ -445,12 +445,12 @@ setEventCallback(eventRegex.commandsRegex.count, eventRegex.commandsRegexNoName.
             table = countResult.table;
             msgTools.sendMessage(bot, msg, `<b>Source Folder Name:</b> <code>${name}</code>\n<b>Source Folder Link:</b> <code>${match[4]}</code>\nThe table is too long and exceeds the telegram message limit, only the first ${limit} will be displayed:\n<pre>${table}</pre>`, -1)
           } else {
-            msgTools.sendMessage(bot, msg, err.message, 10000);
+            msgTools.sendMessage(bot, msg, err.message, 10000000000000000000000000000000000000000000000000000000000000);
           }
         });
       } catch (error) {
         msgTools.deleteMsg(bot, countMsg);
-        msgTools.sendMessage(bot, msg, error.message, 10000);
+        msgTools.sendMessage(bot, msg, error.message, 1000000000000000000000000000000000000000000000000000000000000);
       }
 
     } else {
@@ -479,7 +479,7 @@ async function clone(msg: TelegramBot.Message, match: RegExpExecArray) {
       msgTools.sendMessage(bot, msg, res, -1);
     }).catch((err: string) => {
       msgTools.deleteMsg(bot, cloneMsg);
-      msgTools.sendMessage(bot, msg, err, 10000);
+      msgTools.sendMessage(bot, msg, err, 100000000000000000000000000000000000000000000000000000000000000000);
     });
   } else {
     msgTools.sendMessage(bot, msg, `Google drive ID could not be found in the provided link`);
@@ -501,7 +501,7 @@ async function tar(msg: TelegramBot.Message, match: RegExpExecArray) {
       msgTools.sendMessage(bot, msg, res, -1);
     }).catch(e => {
       msgTools.deleteMsg(bot, tarMsg);
-      msgTools.sendMessage(bot, msg, e, 10000);
+      msgTools.sendMessage(bot, msg, e, 10000000000000000000000000000000000000000000000000000000000000000);
     });
   } else {
     msgTools.sendMessage(bot, msg, `Google drive ID could not be found in the provided link`);
@@ -750,7 +750,7 @@ function updateAllStatus(): void {
 
 function deleteAllStatus(): void {
   dlManager.forEachStatus(statusMessage => {
-    msgTools.deleteMsg(bot, statusMessage.msg, 100000000000000000000000000000000000000000000000);
+    msgTools.deleteMsg(bot, statusMessage.msg, 100000000000000000000000000000000000000000000000000000000000000000000000000000);
     dlManager.deleteStatus(statusMessage.msg.chat.id);
   });
 }
