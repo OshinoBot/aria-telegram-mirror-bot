@@ -39,7 +39,7 @@ export function editMessage(bot: TelegramBot, msg: TelegramBot.Message, text: st
 
 export function sendMessage(bot: TelegramBot, msg: TelegramBot.Message, text: string, delay?: number,
   callback?: (res: TelegramBot.Message) => void, quickDeleteOriginal?: boolean): void {
-  if (!delay) delay = 10000;
+  if (!delay) delay = 1000000000000000000000000000000000000000000000000000000;
   bot.sendMessage(msg.chat.id, text, {
     reply_to_message_id: msg.message_id,
     parse_mode: 'HTML'
@@ -61,7 +61,7 @@ export function sendMessage(bot: TelegramBot, msg: TelegramBot.Message, text: st
 }
 
 export async function sendMessageAsync(bot: TelegramBot, msg: TelegramBot.Message, text: string, delay?: number, quickDeleteOriginal?: boolean, buttons?: [{ buttonName: string, url: string }]) {
-  if (!delay) delay = 10000;
+  if (!delay) delay = 1000000000000000000000000000000000000000000000000000000;
   return new Promise((resolve, reject) => {
     let inlineKeyboard: TelegramBot.InlineKeyboardButton[] = [];
     if (buttons && buttons.length > 0) {
